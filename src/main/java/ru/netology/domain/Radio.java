@@ -90,22 +90,22 @@ public class Radio {
         this.on = on;
     }
 
-    public void increaseRadioStation (int radioStationCurrent){
+    public void increaseRadioStation (){
         radioStationCurrent++;
         setRadioStationCurrent(radioStationCurrent);
     }
 
-    public void decreaseRadioStation(int radioStationCurrent){
+    public void decreaseRadioStation(){
         radioStationCurrent--;
         setRadioStationCurrent(radioStationCurrent);
     }
 
-    public void increaseVolume (int volumeCurrent){
+    public void increaseVolume (){
         volumeCurrent++;
         setVolumeCurrent(volumeCurrent);
     }
 
-    public void decreaseVolume(int volumeCurrent){
+    public void decreaseVolume(){
         volumeCurrent--;
         setVolumeCurrent(volumeCurrent);
     }
