@@ -93,25 +93,20 @@ public class Radio {
     public void increaseRadioStation (int radioStationCurrent){
         radioStationCurrent++;
         setRadioStationCurrent(radioStationCurrent);
-        this.radioStationCurrent = radioStationCurrent;
     }
 
     public void decreaseRadioStation(int radioStationCurrent){
         radioStationCurrent--;
         setRadioStationCurrent(radioStationCurrent);
-        this.radioStationCurrent = radioStationCurrent;
     }
 
     public void increaseVolume (int volumeCurrent){
         volumeCurrent++;
         setVolumeCurrent(volumeCurrent);
-        this.volumeCurrent = volumeCurrent;
     }
 
     public void decreaseVolume(int volumeCurrent){
         volumeCurrent--;
         setVolumeCurrent(volumeCurrent);
-        this.volumeCurrent = volumeCurrent;
     }
-
 }

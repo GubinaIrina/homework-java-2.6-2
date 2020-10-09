@@ -23,7 +23,37 @@ class RadioTest {
         System.out.println(radio.getVolumeCurrent());
     }
 
-    
+    @Test
+    void increaseRadioStation(){
+        Radio radio = new Radio();
+        int actual = 5;
+        radio.increaseRadioStation(actual);
+        System.out.println(radio.getRadioStationCurrent());
+    }
+
+    @Test
+    void decreaseRadioStation(){
+        Radio radio = new Radio();
+        int actual = 5;
+        radio.decreaseRadioStation(actual);
+        System.out.println(radio.getRadioStationCurrent());
+    }
+
+    @Test
+    void increaseVolume(){
+        Radio radio = new Radio();
+        int actual = 8;
+        radio.increaseVolume(actual);
+        System.out.println(radio.getVolumeCurrent());
+    }
+
+    @Test
+    void decreaseVolume(){
+        Radio radio = new Radio();
+        int actual = 1;
+        radio.decreaseVolume(actual);
+        System.out.println(radio.getVolumeCurrent());
+    }
 
 
 
