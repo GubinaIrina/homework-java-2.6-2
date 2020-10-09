@@ -1,0 +1,3 @@
+'setRadioStationCurrent' , 5
+'setRadioStationCurrentUnderMax' , 10
+'setRadioStationCurrentBeforeMin' , -1

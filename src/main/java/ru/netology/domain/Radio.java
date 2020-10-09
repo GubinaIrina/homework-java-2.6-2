@@ -72,9 +72,11 @@ public class Radio {
 
     public void setVolumeCurrent(int volumeCurrent) {
         if (volumeCurrent > volumeMax){
+            this.volumeCurrent = volumeMax;
             return;
         }
         if (volumeCurrent < volumeMin){
+            this.volumeCurrent = volumeMin;
             return;
         }
         this.volumeCurrent = volumeCurrent;
