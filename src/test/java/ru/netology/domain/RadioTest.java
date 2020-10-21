@@ -7,125 +7,106 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-
-    @Test
-    public void radioStationMax() {
-        Radio radio = new Radio("Радио", 15, 5,  3, true);
-        radio.setRadioStationMax(15);
-        System.out.println(radio.getRadioStationMax());
-    }
-    @Test
-    public void setRadioStationCurrent() {
-        Radio radio = new Radio("Радио", 10, 5,  5,true);
-        radio.setRadioStationCurrent(10);
+    @ParameterizedTest
+    @CsvFileSource(resources = "/dataStation.csv")
+    void setRadioStationCurrent(String test, int radioStationCurrent) {
+        Radio radio = new Radio();
+        radio.setRadioStationCurrent(radioStationCurrent);
         System.out.println(radio.getRadioStationCurrent());
     }
 
-    @Test
-    public void setRadioStationCurrentUnderMax() {
-        Radio radio = new Radio("Радио", 9,  10,  5,true);
-        radio.setRadioStationCurrent(10);
-        System.out.println(radio.getRadioStationCurrent());
-    }
-    @Test
-    public void setRadioStationCurrentBeforeMin() {
-        Radio radio = new Radio("Радио", 10, -1, 5, true);
-        radio.setRadioStationCurrent(-1);
-        System.out.println(radio.getRadioStationCurrent());
-    }
-
-    @Test
-    public void setVolumeCurrent() {
-        Radio radio = new Radio("Радио", 10, 4, 50, true);
-        radio.setVolumeCurrent(50);
-        System.out.println(radio.getVolumeCurrent());
-    }
-    @Test
-    public void setVolumeCurrentUnderMax() {
-        Radio radio = new Radio("Радио", 10, 5, 101, true);
-        radio.setVolumeCurrent(101);
-        System.out.println(radio.getVolumeCurrent());
-    }
-    @Test
-    public void setVolumeCurrentBeforeMin() {
-        Radio radio = new Radio("Радио", 10, 4, -1, true);
-        radio.setVolumeCurrent(-1);
+    @ParameterizedTest
+    @CsvFileSource(resources = "/dataVolume.csv")
+    void setVolumeCurrent(String test, int currentVolume) {
+        Radio radio = new Radio();
+        radio.setVolumeCurrent(currentVolume);
         System.out.println(radio.getVolumeCurrent());
     }
 
     @Test
-    public void increaseRadioStation(){
-        Radio radio = new Radio("Радио", 10, 5, 5, true);
+    void increaseRadioStation(){
+        Radio radio = new Radio();
         radio.increaseRadioStation();
         System.out.println(radio.getRadioStationCurrent());
     }
     @Test
-    public void increaseRadioStationBeforeMax(){
-        Radio radio = new Radio("Радио", 10, 9, 5, true);
+    void increaseRadioStationBeforeMax(){
+        Radio radio = new Radio();
+        radio.setRadioStationCurrent(8);
         radio.increaseRadioStation();
         System.out.println(radio.getRadioStationCurrent());
     }
     @Test
-    public void increaseRadioStationUnderMax(){
-        Radio radio = new Radio("Радио", 10, 10, 5, true);
+    void increaseRadioStationUnderMax(){
+        Radio radio = new Radio();
+        radio.setRadioStationCurrent(9);
         radio.increaseRadioStation();
         System.out.println(radio.getRadioStationCurrent());
     }
 
     @Test
-    public void decreaseRadioStation(){
-        Radio radio = new Radio("Радио", 10, 5, 5, true);
+    void decreaseRadioStation(){
+        Radio radio = new Radio();
         radio.decreaseRadioStation();
         System.out.println(radio.getRadioStationCurrent());
     }
     @Test
-    public void decreaseRadioStationUnderMin(){
-        Radio radio = new Radio("Радио", 10, 1, 5, true);
+    void decreaseRadioStationUnderMin(){
+        Radio radio = new Radio();
+        radio.setRadioStationCurrent(1);
         radio.decreaseRadioStation();
         System.out.println(radio.getRadioStationCurrent());
     }
     @Test
-    public void decreaseRadioStationBeforeMin(){
-        Radio radio = new Radio("Радио", 10, 0, 5, true);
+    void decreaseRadioStationBeforeMin(){
+        Radio radio = new Radio();
+        radio.setRadioStationCurrent(0);
         radio.decreaseRadioStation();
         System.out.println(radio.getRadioStationCurrent());
     }
 
     @Test
-    public void increaseVolume(){
-        Radio radio = new Radio("Радио", 10, 5, 50, true);
+    void increaseVolume(){
+        Radio radio = new Radio();
         radio.increaseVolume();
         System.out.println(radio.getVolumeCurrent());
     }
     @Test
-    public void increaseVolumeBeforeMax(){
-        Radio radio = new Radio("Радио", 10, 5, 99, true);
+    void increaseVolumeBeforeMax(){
+        Radio radio = new Radio();
+        radio.setVolumeCurrent(9);
         radio.increaseVolume();
         System.out.println(radio.getVolumeCurrent());
     }
     @Test
-    public void increaseVolumeUnderMax(){
-        Radio radio = new Radio("Радио", 10, 5, 100, true);
+    void increaseVolumeUnderMax(){
+        Radio radio = new Radio();
+        radio.setVolumeCurrent(10);
         radio.increaseVolume();
         System.out.println(radio.getVolumeCurrent());
     }
 
     @Test
-    public void decreaseVolume(){
-        Radio radio = new Radio("Радио", 10, 5, 50, true);
+    void decreaseVolume(){
+        Radio radio = new Radio();
         radio.decreaseVolume();
         System.out.println(radio.getVolumeCurrent());
     }
     @Test
-    public void decreaseVolumeBeforeMin(){
-        Radio radio = new Radio("Радио", 10, 5, 0, true);
+    void decreaseVolumeBeforeMin(){
+        Radio radio = new Radio();
+        radio.setVolumeCurrent(0);
         radio.decreaseVolume();
         System.out.println(radio.getVolumeCurrent());
     }
     @Test
-    public void decreaseVolumeUnderMin(){
-        Radio radio = new Radio("Радио", 10, 1, 1, true);
+    void decreaseVolumeUnderMin(){
+        Radio radio = new Radio();
+        radio.setVolumeCurrent(1);
         radio.decreaseVolume();
         System.out.println(radio.getVolumeCurrent());
     }
+
+
+
 }
